@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package maquina_multicinta;
 
 import java.io.BufferedReader;
@@ -21,7 +16,7 @@ import java.util.Vector;
  */
 public class Maquina_Multicinta {
 
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         String ruta_archivo_transicisiones = "";
         String cadena_a_evaluar = "";
         int numero_de_cintas = 0;
@@ -37,11 +32,11 @@ public class Maquina_Multicinta {
         File archivo = new File(ruta_archivo_transicisiones);
         try {
             FileReader lector_archivo = new FileReader(archivo);
-            BufferedReader lineas = new BufferedReader(lector_archivo);
-            String linea = lineas.readLine().toString();
-            while (linea != null) {
-                Maquina_Turing_MultiCinta.agregarTransicion(linea);
-                linea = lineas.readLine();
+            BufferedReader cintas = new BufferedReader(lector_archivo);
+            String cinta = cintas.readLine().toString();
+            while (cinta != null) {
+                Maquina_Turing_MultiCinta.agregarTransicion(cinta);
+                cinta = cintas.readLine();
             }
             lector_archivo.close();
             Maquina_Turing_MultiCinta.procesar(cadena_a_evaluar, numero_de_cintas);
@@ -98,6 +93,7 @@ public class Maquina_Multicinta {
                             transicion_correcta = true;
                         } else {
                             k = numero_de_cintas + 1;
+                            transicion_correcta = false;
                         }
                     }
                     if (transicion_correcta) {
